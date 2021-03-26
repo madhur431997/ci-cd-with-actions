@@ -3,18 +3,23 @@
 
 name: React App CI
 
-on: release\
+on: 
   push:
-    branches: [ main ]
+    branches: 
+     - main 
+     - releases/*
+  
   pull_request:
-    branches: [ main ]
+    branches: 
+     - main 
+     - releases/*
 
-jobs: Build and Test
+jobs: 
  build-test: 
+  name: Build and test
+  runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    strategy:
+  strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x, 15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
